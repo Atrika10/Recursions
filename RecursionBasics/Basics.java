@@ -22,9 +22,21 @@ public class Basics{
         int ans = n + sumOfNaturalNum(n-1);
         return ans;
     }
+
+    // print nth fibonacci number
+    // Time complexity => O(2^n) Expoenetial T.C & Space Complex. => O(n)
+    public static int fibonacciNum(int n){
+        // base case
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        // work 
+        int ans = fibonacciNum(n-1) + fibonacciNum(n-2);
+        return ans;
+    }
     public static void main(String[] args) {
 
-        int ans = sumOfNaturalNum(10);
+        int ans = fibonacciNum(11);
         System.out.println(ans);
     }
 }
