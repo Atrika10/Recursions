@@ -34,9 +34,25 @@ public class Basics{
         int ans = fibonacciNum(n-1) + fibonacciNum(n-2);
         return ans;
     }
-    public static void main(String[] args) {
 
-        int ans = fibonacciNum(11);
-        System.out.println(ans);
+    // check a given array is sorted or not
+    public static boolean isSorted(int n, int i, int arr[]){
+        // base case
+        if (i == n-1) { // I've checked all & now standing in the last index of the given array
+            return true;
+        }
+
+        // work
+        if (arr[i] > arr[i+1]) { 
+            return false;
+        }
+        return isSorted(n, i+1, arr);
+        
+    }
+    public static void main(String[] args) {
+        int arr[] = {1,2,3,4};
+        System.out.println(isSorted(arr.length, 0, arr));
+        // int ans = fibonacciNum(11);
+        // System.out.println(ans);
     }
 }
