@@ -79,9 +79,20 @@ public class Basics{
         }
         return lastOccurences(arr, key, idx-1);
     }
+
+    // print x^n
+    // TC => O(n)
+    public static int findXtoThePowerN(int x, int n){
+        // base case
+        if (n == 0) return 1;
+        
+        // work
+        return x*findXtoThePowerN(x, n-1);
+    }
     public static void main(String[] args) {
         int arr[] = {1,2,3,4,2,5,3}; int key = 10;
-        System.out.println(lastOccurences(arr, key, arr.length-1));
+        //System.out.println(lastOccurences(arr, key, arr.length-1));
+        System.out.println(findXtoThePowerN(2, 10));
         
     }
 }
