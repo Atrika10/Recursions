@@ -89,10 +89,28 @@ public class Basics{
         // work
         return x*findXtoThePowerN(x, n-1);
     }
+
+    // TC => O(logn)
+    public static int findXtoThePowerNOptimize(int x, int n){
+        // base case
+        if (n == 0) {
+            return 1;
+        }
+        // work
+        int halfPower = findXtoThePowerNOptimize(x, n/2);
+        int halfPowerSq = halfPower*halfPower;
+
+        // if n is odd
+        if (n%2 !=0) {
+            halfPowerSq = x*halfPowerSq;
+        }
+
+        return halfPowerSq;
+    }
     public static void main(String[] args) {
         int arr[] = {1,2,3,4,2,5,3}; int key = 10;
         //System.out.println(lastOccurences(arr, key, arr.length-1));
-        System.out.println(findXtoThePowerN(2, 10));
+        System.out.println(findXtoThePowerN(5, 10));
         
     }
 }
