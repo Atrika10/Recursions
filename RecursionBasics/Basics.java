@@ -49,10 +49,24 @@ public class Basics{
         return isSorted(n, i+1, arr);
         
     }
+    // TC => O(n) & SC => O(1)
+    public static int firstOccureneces(int arr[], int key, int idx){
+        // base case
+        if (idx == arr.length-1 && arr[idx] == key) {   // last idx
+            return idx;
+        }else if(idx == arr.length-1){      //key doesn't exist
+            return -1;
+        }
+        // work
+        if(arr[idx] == key) {  //  if key exist current idx
+            return idx;
+        }
+
+        return firstOccureneces(arr, key, idx+1); // else I'll return whatever my next func is returning
+    }
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4};
-        System.out.println(isSorted(arr.length, 0, arr));
-        // int ans = fibonacciNum(11);
-        // System.out.println(ans);
+        int arr[] = {1,2,3,4, 2, 5,3}; int key = 2;
+        System.out.println(firstOccureneces(arr, key, 0));
+        
     }
 }
