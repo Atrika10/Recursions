@@ -64,9 +64,24 @@ public class Basics{
 
         return firstOccureneces(arr, key, idx+1); // else I'll return whatever my next func is returning
     }
+
+     // TC => O(n) & SC => O(1)
+    public static int lastOccurences(int arr[], int key, int idx){
+        // base case
+        if (idx == 0 && arr[idx] == key) {
+            return idx;
+        }else if(idx == 0){
+            return -1;
+        }
+        // work
+        if (arr[idx] == key) {
+            return idx;
+        }
+        return lastOccurences(arr, key, idx-1);
+    }
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4, 2, 5,3}; int key = 2;
-        System.out.println(firstOccureneces(arr, key, 0));
+        int arr[] = {1,2,3,4,2,5,3}; int key = 10;
+        System.out.println(lastOccurences(arr, key, arr.length-1));
         
     }
 }
