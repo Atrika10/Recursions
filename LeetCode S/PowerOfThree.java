@@ -1,25 +1,16 @@
 public class PowerOfThree {
-    // Approch 1   (Brute force)
-    public static boolean isPowerOfThreeHelpingFnx(int n, int i){
-        // base case
-        int ans = (int) Math.pow(3, i);
-        if (ans > n || n == 0) {        // ans > n means, n lies in btw any 2 power of three
+    // Approch 2   (Optimize)
+    public static boolean isPowerOfThree(int n) {
+        if (n <= 0) {
             return false;
         }
-
-        // work
-        if (ans == n) {
-            return true;
+        // if n is the power of 3 then below while loop run until n becomes 1
+        // if n is not the power of 3 just only multiple or not multiple then n will not become 1
+        while (n %3 == 0) {
+            n /= 3;
         }
-
-        // inner call
-        return isPowerOfThreeHelpingFnx(n, i+1);
-    }
-    public static boolean isPowerOfThree(int n) {
-        if (n < 0) {    
-            n = -1*n;
-        }
-        return isPowerOfThreeHelpingFnx(n,0);
+        // if n==1, means it's a power of 3
+        return n==1;
     }
     public static void main(String[] args) {
         int n = 2147483647;
